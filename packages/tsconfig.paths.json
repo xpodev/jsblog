@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@jsblog/core": ["../core/dist","./core/dist","../core/src","./core/src"],
+      "@jsblog/core/*": ["../core/dist/*","./core/dist/*","../core/src/*","./core/src/*"],
+      "@jsblog/mongodb": ["../mongodb/dist","./mongodb/dist","../mongodb/src","./mongodb/src"],
+      "@jsblog/mongodb/*": ["../mongodb/dist/*","./mongodb/dist/*","../mongodb/src/*","./mongodb/src/*"],
+      "@jsblog/mysql": ["../mysql/dist","./mysql/dist","../mysql/src","./mysql/src"],
+      "@jsblog/mysql/*": ["../mysql/dist/*","./mysql/dist/*","../mysql/src/*","./mysql/src/*"]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "declaration": true,
+    "target": "ES5",
+    "lib": ["ES2015"],
+    "paths": {
+      "@jsblog/core": ["../core/src","./core/src","../core/dist","./core/dist"],
+      "@jsblog/core/*": ["../core/src/*","./core/src/*","../core/dist/*","./core/dist/*"],
+      "@jsblog/mongodb": ["../mongodb/src","./mongodb/src","../mongodb/dist","./mongodb/dist"],
+      "@jsblog/mongodb/*": ["../mongodb/src/*","./mongodb/src/*","../mongodb/dist/*","./mongodb/dist/*"],
+      "@jsblog/mysql": ["../mysql/src","./mysql/src","../mysql/dist","./mysql/dist"],
+      "@jsblog/mysql/*": ["../mysql/src/*","./mysql/src/*","../mysql/dist/*","./mysql/dist/*"]
+    }
+  },
+  "exclude": ["node_modules","dist","test/**/*","*.spec.ts"],
+  "include": ["src/**/*"]
+}

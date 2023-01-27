@@ -1,0 +1,15 @@
+{
+    "files": [],
+    "references": [
+        {
+            "path": "./core/tsconfig.json",
+        },
+        {
+            "path": "./mongodb/tsconfig.json",
+        },
+        {
+            "path": "./mysql/tsconfig.json",
+        }
+    ],
+    "extends": "./tsconfig.paths.json",
+}

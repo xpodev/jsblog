@@ -1,0 +1,11 @@
+{
+  "name": "@jsblog/mongodb",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Xpo Development",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^4.13.0",
+    "nanoid": "3"
+  }
+}

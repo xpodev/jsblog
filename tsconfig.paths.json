@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "@jsblog/core": ["packages/core/dist", "packages/core/src"],
+            "@jsblog/core/*": ["packages/core/dist/*", "packages/core/src/*"],
+            "@jsblog/mongodb": ["packages/mongodb/dist", "packages/mongodb/src"],
+            "@jsblog/mongodb/*": ["packages/mongodb/dist/*", "packages/mongodb/src/*"],
+            "@jsblog/mysql": ["packages/mysql/dist", "packages/mysql/src"],
+            "@jsblog/mysql/*": ["packages/mysql/dist/*", "packages/mysql/src/*"],
+        }
+    }
+}
