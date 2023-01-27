@@ -2,8 +2,6 @@
 A lightweight blog engine written in JavaScript.
 
 ## Installation
-**
-
 **NOTE**: THIS IS NOT PUBLISHED YET SO DON'T EXPECT IT TO WORK!
 
 npm
