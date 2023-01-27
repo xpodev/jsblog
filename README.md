@@ -2,7 +2,10 @@
 A lightweight blog engine written in JavaScript.
 
 ## Installation
-**Note**: This is not published yet so don't expect it to work
+**
+
+**NOTE**: THIS IS NOT PUBLISHED YET SO DON'T EXPECT IT TO WORK!
+
 npm
 ```bash
 npm install @jsblog/core
