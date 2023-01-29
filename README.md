@@ -1,5 +1,5 @@
 # JS Blog
-A lightweight blog engine written in JavaScript.
+A lightweight blog engine written in TypeScript.
 
 ## Installation
 **NOTE**: THIS IS NOT PUBLISHED YET SO DON'T EXPECT IT TO WORK!
