@@ -4,7 +4,7 @@ import { BlogDatabaseAdapter } from "./types/adapter";
 import { BlogCommentDocument, BlogComment, CreateComment } from "./types/comment";
 import { BlogPost } from "./types/post";
 
-export class Comment<T = true> extends TimeStamps implements BlogCommentDocument {
+export class Comment extends TimeStamps implements BlogCommentDocument {
     id: string;
     content: string;
     parent: BlogComment<true> | BlogPost;

@@ -28,6 +28,8 @@ export class Post extends TimeStamps implements BlogPostDocument {
   }
 
   async addComment(comment: CreateComment): Promise<BlogComment> {
+    this.verifyNotDeleted(`Post ${this.id} is deleted`);
+
     const newComment = new Comment(
       Object.assign(
         {
@@ -43,6 +45,8 @@ export class Post extends TimeStamps implements BlogPostDocument {
   }
 
   async removeComment(id: string): Promise<void> {
+    this.verifyNotDeleted(`Post ${this.id} is deleted`);
+
     const commentIndex = this.comments.findIndex(
       (comment) => comment.id === id
     );

@@ -1,3 +1,4 @@
+import { BlogError } from "./errors";
 import { WithTimeStamps } from "./types";
 
 /**
@@ -44,14 +45,33 @@ export class TimeStamps implements WithTimeStamps {
     }
 
     update(...args: any[]) {
+        this.verifyNotDeleted();
         this.updatedAt = new Date();
     }
 
     delete() {
+        this.verifyNotDeleted();
         this.deletedAt = new Date();
     }
 
     restore() {
         this.deletedAt = null;
+    }
+
+    /**
+     * Verify that the object has not been deleted, and throw an error if it has.
+     * 
+     * @param errorMessage The error message to throw if the object has been deleted. If false, no error will be thrown.
+     * @returns True if the object has not been deleted, false if it has.
+     * @throws BlogError if the object has been deleted.
+     */
+    protected verifyNotDeleted(errorMessage: string | false = "This object has been deleted") {
+        if (this.deletedAt) {
+            if (errorMessage) {
+                throw new BlogError(errorMessage || "This object has been deleted");
+            }
+            return false;
+        }
+        return true;
     }
 }
