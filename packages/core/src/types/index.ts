@@ -138,3 +138,5 @@ export type OmitMethods<T> = Pick<
 export type BlogDocument<T> = {
   toJSON(): T;
 }
+
+export type Type<T> = new (...args: any[]) => T;
