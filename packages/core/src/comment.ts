@@ -1,19 +1,20 @@
 import { BlogError } from "./errors";
 import { TimeStamps } from "./timestamps";
+import { BlogDocument } from "./types";
 import { BlogDatabaseAdapter } from "./types/adapter";
 import { BlogCommentDocument, BlogComment, CreateComment } from "./types/comment";
 import { BlogPost } from "./types/post";
 
-export class Comment extends TimeStamps implements BlogCommentDocument {
+export class Comment extends TimeStamps implements BlogDocument<BlogCommentDocument> {
     id: string;
     content: string;
     parent: BlogComment<true> | BlogPost;
     
-    constructor(comment: CreateComment, private readonly adapter: BlogDatabaseAdapter) {
+    constructor(comment: CreateComment, parent: BlogComment<true> | BlogPost,  private readonly adapter: BlogDatabaseAdapter) {
         super(comment);
         this.id = comment.id;
         this.content = comment.content;
-        this.parent = comment.parent as BlogComment<true> | BlogPost;
+        this.parent = parent;
     }
 
     async delete() {
@@ -42,7 +43,7 @@ export class Comment extends TimeStamps implements BlogCommentDocument {
         return {
             id: this.id,
             content: this.content,
-            parent: this.parent,
+            parentId: this.parent.id,
             createdAt: this.createdAt,
             updatedAt: this.updatedAt,
             deletedAt: this.deletedAt,

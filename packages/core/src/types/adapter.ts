@@ -43,7 +43,13 @@ export interface BlogDatabaseAdapter {
      */
     deletePost(id: string): Provider<void>;
 
-    getComments(): Provider<Comment[]>;
+    /**
+     * Get all comments for a post/comment.
+     * 
+     * @param parentId The id of the post/comment to get comments for.
+     * @returns A promise that resolves to an array of comments.
+     */
+    getComments(parentId: string): Provider<Comment[]>;
     /**
      * Get a comment by id.
      * 

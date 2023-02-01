@@ -26,7 +26,9 @@ export type BlogComment<C = false> = WithTimeStamps & {
 /**
  * A comment document, that can be saved to the database.
  */
-export type BlogCommentDocument<C = false> = OmitMethods<BlogComment<C>>;
+export type BlogCommentDocument<C = false> = OmitMethods<
+  Omit<BlogComment<C>, "parent"> & { parentId: string }
+>;
 
 /**
  * The properties required to create a comment.

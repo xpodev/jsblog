@@ -62,37 +62,39 @@ export class MongoAdapter implements BlogDatabaseAdapter {
   }
 
   async getPost(id: string) {
-    const post = await this.postsCollection.aggregate<Post>([
-      {
-        $match: {
-          id,
+    const post = await this.postsCollection
+      .aggregate<Post>([
+        {
+          $match: {
+            id,
+          },
         },
-      },
-      {
-        $lookup: {
-          from: this.config.commentsCollectionName,
-          as: "comments",
-          let: { id: "$id" },
-          pipeline: [
-            {
-              $match: {
-                $expr: {
-                  $eq: ["$parentId", "$$id"],
+        {
+          $lookup: {
+            from: this.config.commentsCollectionName,
+            as: "comments",
+            let: { id: "$id" },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $eq: ["$parentId", "$$id"],
+                  },
                 },
               },
-            },
-            {
-              $project: {
-                _id: 0,
-              }
-            },
-            {
-              $limit: 10,
-            }
-          ],
+              {
+                $project: {
+                  _id: 0,
+                },
+              },
+              {
+                $limit: 10,
+              },
+            ],
+          },
         },
-      },
-    ]).next();
+      ])
+      .next();
     if (!post) {
       throw new Error(`Post with id ${id} not found`);
     }
@@ -113,29 +115,37 @@ export class MongoAdapter implements BlogDatabaseAdapter {
     await this.postsCollection.deleteOne({ id });
   }
 
-  async getComments() {
-    const comments = await this.commentsCollection.find().toArray();
-    return comments.map((comment) => new Comment(comment, this));
+  async getComments(parentId: string) {
+    const comments = await this.commentsCollection.find({ parentId }).toArray();
+    const parent = await this.getCommentable(parentId);
+    return comments.map((comment) => new Comment(comment, parent, this));
   }
 
   getComment(id: string): Promise<Comment> {
     throw new Error("Method not implemented.");
   }
 
-  async saveComment(comment: Comment): Promise<Comment> {
-    const { parent, ..._comment } = comment;
+  async saveComment(comment: BlogCommentDocument): Promise<Comment> {
     await this.commentsCollection.updateOne(
       { id: comment.id },
-      { $set: {
-        ..._comment,
-        parentId: parent.id,
-      } },
+      {
+        $set: comment,
+      },
       { upsert: true }
     );
-    return new Comment(comment, this);
+    const parent = await this.getCommentable(comment.parentId);
+    return new Comment(comment, parent, this);
   }
 
   deleteComment(id: string): Promise<void> {
     throw new Error("Method not implemented.");
+  }
+
+  async getCommentable(id: string) {
+    const result = (await this.getPost(id)) || (await this.getComment(id));
+    if (!result) {
+      throw new Error(`Cannot find post or comment with id ${id} not found`);
+    }
+    return result;
   }
 }
