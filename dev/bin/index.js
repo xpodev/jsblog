@@ -9,7 +9,7 @@ const packagesDir = `${process.cwd()}/packages`;
 const packageDir = `${packagesDir}/${name}`;
 
 const defaultPackageJson = {
-    name,
+    name: `@jsblog/${name}`,
     version: "1.0.0",
     description: "",
     main: "dist/index.js",
