@@ -1,11 +1,12 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5"],
+    "module": "commonjs",
     "outDir": "./dist",
     "baseUrl": ".",
     "declaration": true,
-    "target": "ES5",
-    "lib": ["ES2015"],
     "paths": {
       "@jsblog/cli": ["../cli/src","./cli/src","../cli/dist","./cli/dist"],
       "@jsblog/cli/*": ["../cli/src/*","./cli/src/*","../cli/dist/*","./cli/dist/*"],

@@ -1,0 +1,8 @@
+{
+  "name": "@jsblog/cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "author": "Xpo Development",
+  "license": "MIT"
+}

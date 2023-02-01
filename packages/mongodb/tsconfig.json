@@ -7,6 +7,8 @@
     "target": "ES5",
     "lib": ["ES2015"],
     "paths": {
+      "@jsblog/cli": ["../cli/src","./cli/src","../cli/dist","./cli/dist"],
+      "@jsblog/cli/*": ["../cli/src/*","./cli/src/*","../cli/dist/*","./cli/dist/*"],
       "@jsblog/core": ["../core/src","./core/src","../core/dist","./core/dist"],
       "@jsblog/core/*": ["../core/src/*","./core/src/*","../core/dist/*","./core/dist/*"],
       "@jsblog/mongodb": ["../mongodb/src","./mongodb/src","../mongodb/dist","./mongodb/dist"],
