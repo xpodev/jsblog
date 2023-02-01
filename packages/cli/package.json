@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "bin": {
+    "blog": "dist/index.js"
+  },
   "author": "Xpo Development",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.18"
+  }
 }
