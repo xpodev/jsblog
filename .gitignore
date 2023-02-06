@@ -131,3 +131,4 @@ dist
 
 # Local History
 .lh/
+packages/web/next-env.d.ts
