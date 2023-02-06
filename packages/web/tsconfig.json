@@ -2,24 +2,95 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "target": "es5",
-    "lib": ["es5"],
+    "lib": [
+      "es5",
+      "dom"
+    ],
     "module": "commonjs",
     "outDir": "./dist",
     "baseUrl": ".",
     "declaration": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "paths": {
-      "@jsblog/cli": ["../cli/src","./cli/src","../cli/dist","./cli/dist"],
-      "@jsblog/cli/*": ["../cli/src/*","./cli/src/*","../cli/dist/*","./cli/dist/*"],
-      "@jsblog/core": ["../core/src","./core/src","../core/dist","./core/dist"],
-      "@jsblog/core/*": ["../core/src/*","./core/src/*","../core/dist/*","./core/dist/*"],
-      "@jsblog/mongodb": ["../mongodb/src","./mongodb/src","../mongodb/dist","./mongodb/dist"],
-      "@jsblog/mongodb/*": ["../mongodb/src/*","./mongodb/src/*","../mongodb/dist/*","./mongodb/dist/*"],
-      "@jsblog/mysql": ["../mysql/src","./mysql/src","../mysql/dist","./mysql/dist"],
-      "@jsblog/mysql/*": ["../mysql/src/*","./mysql/src/*","../mysql/dist/*","./mysql/dist/*"],
-      "@jsblog/web": ["../web/src","./web/src","../web/dist","./web/dist"],
-      "@jsblog/web/*": ["../web/src/*","./web/src/*","../web/dist/*","./web/dist/*"]
-    }
+      "@jsblog/cli": [
+        "../cli/src",
+        "./cli/src",
+        "../cli/dist",
+        "./cli/dist"
+      ],
+      "@jsblog/cli/*": [
+        "../cli/src/*",
+        "./cli/src/*",
+        "../cli/dist/*",
+        "./cli/dist/*"
+      ],
+      "@jsblog/core": [
+        "../core/src",
+        "./core/src",
+        "../core/dist",
+        "./core/dist"
+      ],
+      "@jsblog/core/*": [
+        "../core/src/*",
+        "./core/src/*",
+        "../core/dist/*",
+        "./core/dist/*"
+      ],
+      "@jsblog/mongodb": [
+        "../mongodb/src",
+        "./mongodb/src",
+        "../mongodb/dist",
+        "./mongodb/dist"
+      ],
+      "@jsblog/mongodb/*": [
+        "../mongodb/src/*",
+        "./mongodb/src/*",
+        "../mongodb/dist/*",
+        "./mongodb/dist/*"
+      ],
+      "@jsblog/mysql": [
+        "../mysql/src",
+        "./mysql/src",
+        "../mysql/dist",
+        "./mysql/dist"
+      ],
+      "@jsblog/mysql/*": [
+        "../mysql/src/*",
+        "./mysql/src/*",
+        "../mysql/dist/*",
+        "./mysql/dist/*"
+      ],
+      "@jsblog/web": [
+        "../web/src",
+        "./web/src",
+        "../web/dist",
+        "./web/dist"
+      ],
+      "@jsblog/web/*": [
+        "../web/src/*",
+        "./web/src/*",
+        "../web/dist/*",
+        "./web/dist/*"
+      ]
+    },
   },
-  "exclude": ["node_modules","dist","test/**/*","*.spec.ts"],
-  "include": ["src/**/*"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test/**/*",
+    "*.spec.ts"
+  ],
+  "include": [
+    "src/**/*"
+  ]
 }
