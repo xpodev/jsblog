@@ -85,7 +85,7 @@ export interface IBlog {
 
   /**
    * Get a post by id.
-   * 
+   *
    * @param id The id of the post to get.
    * @returns A promise that resolves to the post.
    */
@@ -93,14 +93,14 @@ export interface IBlog {
   getPosts(): Promise<BlogPostDocument[]>;
   /**
    * Create a new post.
-   * 
+   *
    * @param post The post to create.
    * @returns A promise that resolves to the created post.
    */
   createPost(post: BlogPostDocument): Promise<BlogPostDocument>;
   /**
    * Update a post.
-   * 
+   *
    * @param id The id of the post to update.
    * @param post The new post data.
    * @returns A promise that resolves to the updated post.
@@ -108,7 +108,7 @@ export interface IBlog {
   updatePost(id: string, post: BlogPostDocument): Promise<BlogPostDocument>;
   /**
    * Delete a post.
-   * 
+   *
    * @param id The id of the post to delete.
    * @returns A promise that resolves when the post is deleted.
    */
@@ -117,14 +117,14 @@ export interface IBlog {
 
 /**
  * A type that omits methods from an object.
- * 
+ *
  * @example
  * type Foo = {
  *  a: string;
  *  b: number;
  *  c(): void;
  * }
- * 
+ *
  * type Bar = OmitMethods<Foo>;
  * // Bar = { a: string; b: number; }
  */
@@ -137,6 +137,10 @@ export type OmitMethods<T> = Pick<
 
 export type BlogDocument<T> = {
   toJSON(): T;
-}
+};
 
+/**
+ * A type that can be used to create a new instance of a class.
+ * Basically, the constructor type.
+ */
 export type Type<T> = new (...args: any[]) => T;
