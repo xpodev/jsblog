@@ -14,7 +14,9 @@
       "@jsblog/mongodb": ["../mongodb/src","./mongodb/src","../mongodb/dist","./mongodb/dist"],
       "@jsblog/mongodb/*": ["../mongodb/src/*","./mongodb/src/*","../mongodb/dist/*","./mongodb/dist/*"],
       "@jsblog/mysql": ["../mysql/src","./mysql/src","../mysql/dist","./mysql/dist"],
-      "@jsblog/mysql/*": ["../mysql/src/*","./mysql/src/*","../mysql/dist/*","./mysql/dist/*"]
+      "@jsblog/mysql/*": ["../mysql/src/*","./mysql/src/*","../mysql/dist/*","./mysql/dist/*"],
+      "@jsblog/web": ["../web/src","./web/src","../web/dist","./web/dist"],
+      "@jsblog/web/*": ["../web/src/*","./web/src/*","../web/dist/*","./web/dist/*"]
     }
   },
   "exclude": ["node_modules","dist","test/**/*","*.spec.ts"],
