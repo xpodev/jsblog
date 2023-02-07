@@ -22,7 +22,7 @@ export class Post extends TimeStamps implements BlogPostDocument {
     this.title = post.title;
     this.content = post.content;
     this.comments = (post.comments ?? []).map(
-      (comment) => new Comment({ ...comment, parent: this }, this.adapter)
+      (comment) => new Comment(comment, this, this.adapter)
     );
     this.canComment = post.canComment ?? Post.defaults.canComment;
   }
@@ -34,10 +34,10 @@ export class Post extends TimeStamps implements BlogPostDocument {
       Object.assign(
         {
           id: await this.adapter.newId(),
-          parent: this,
         },
         comment
       ),
+      this,
       this.adapter
     );
     await newComment.save();
