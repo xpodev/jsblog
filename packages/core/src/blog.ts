@@ -41,6 +41,7 @@ export class Blog {
 
   async init() {
     await this.adapter.init?.();
+    return this;
   }
 
   async getPost(id: string) {
