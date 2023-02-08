@@ -17,7 +17,7 @@ export default function Home({ posts }: { posts: Post[] }) {
     )
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getServerSideProps(context: GetStaticPropsContext) {
     const posts = await getPosts();
     return {
         props: {
