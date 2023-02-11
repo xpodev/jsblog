@@ -2,9 +2,22 @@ import { spawn } from "child_process";
 import chalk from "chalk";
 import path from "path";
 
+const serviceColors = [
+  chalk.bgBlue,
+  chalk.black.bgGreen,
+  chalk.black.bgCyan,
+  chalk.bgMagenta,
+  chalk.black.bgYellow,
+];
+
 const info = (service: string) => {
+  const color = serviceColors.shift()!;
+  serviceColors.push(color);
+  const lineStart = `${color(`${service}`)} `;
   return (data: Buffer) => {
-    process.stdout.write(`${chalk.bgBlue(`${service}`)} ${data.toString()}`);
+    process.stdout.write(
+      `${lineStart}${data.toString()}`
+    );
   };
 };
 
@@ -35,4 +48,3 @@ server.stderr.on("data", error("SERVER"));
 
 client.stdout.on("data", info("CLIENT"));
 client.stderr.on("data", error("CLIENT"));
-
