@@ -92,5 +92,5 @@
   ],
   "include": [
     "src/**/*"
-, "src/server.ts"  ]
+, "src/run.ts"  ]
 }
