@@ -1,5 +1,5 @@
 # JSBlog Web
-This is the web application for JSBlog. It is a Next.js application that uses the [JSBlog Package](https://github.com/xpodev/jsblog) to create a blog.
+This is the web application for JSBlog. It is a [NestJS](https://nestjs.com) & [React](https://reactjs.org) application that uses the [JSBlog Package](https://github.com/xpodev/jsblog) to create a blog.
 
 The goal of this project is to create a blog that is easy to use and easy to customize. It is built with Next.js, which allows for easy customization and deployment.
 ```bash
@@ -21,4 +21,4 @@ Then, you can run the development server:
 npm run dev
 ```
 
-By default, the development server will run on port 3000. You can change this by setting the `PORT` environment variable.
+By default, the server port is 8000 and the client port is 3000.
