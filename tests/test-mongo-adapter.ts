@@ -1,14 +1,13 @@
-import { MongoAdapter } from "@jsblog/mongodb";
+import { MongoAdapter, createBlog } from "@jsblog/mongodb";
 import { Blog } from "@jsblog/core";
-
-const adapter = new MongoAdapter("mongodb://127.0.0.1:27017/jsblog-test");
-const blog = new Blog({
-  adapter,
-});
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-blog.init().then(async () => {
+createBlog({
+  mongoOptions: {
+    uri: "mongodb://localhost:27017/jsblog-test",
+  },
+}).then(async (blog) => {
   //   const post = await blog.createPost({
   //     title: "Hello world",
   //     content: "Hello world",
@@ -21,10 +20,10 @@ blog.init().then(async () => {
   //   await post.addComment({
   //     content: "Hello world",
   //   });
-  const post = await blog.getPost("YAOigHu4dAjejjDnDm");
-  await post.comments[0].update({
-    content: "Hello world 2",
+  const post = await blog.getPost("pDoFyKE7pE3oAGBUe5");
+  await post.update({
+    content: "Hello world 4",
   });
 
-  //   process.exit(0);
+    process.exit(0);
 });

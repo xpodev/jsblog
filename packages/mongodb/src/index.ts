@@ -1,4 +1,10 @@
-import { BlogDatabaseAdapter, Comment, Post } from "@jsblog/core";
+import {
+  Blog,
+  BlogDatabaseAdapter,
+  BlogOptions,
+  Comment,
+  Post,
+} from "@jsblog/core";
 import { BlogCommentDocument } from "@jsblog/core/types/comment";
 import { BlogPostDocument } from "@jsblog/core/types/post";
 import { MongoClient, MongoClientOptions, Collection } from "mongodb";
@@ -148,4 +154,21 @@ export class MongoAdapter implements BlogDatabaseAdapter {
     }
     return result;
   }
+}
+
+export async function createBlog({
+  mongoOptions = {
+    uri: process.env.MONGO_URI || "mongodb://localhost:27017/jsblog",
+  },
+  blogOptions = {
+    adapter: new MongoAdapter(mongoOptions),
+  },
+}: {
+  mongoOptions?: MongoAdapterOptions;
+  blogOptions?: BlogOptions;
+} = {}) {
+  const blog = new Blog(blogOptions);
+
+  await blog.init();
+  return blog;
 }
