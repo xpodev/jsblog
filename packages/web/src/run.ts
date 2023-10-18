@@ -40,6 +40,7 @@ const client = spawn("npm", ["run", "start"], {
   shell: true,
   env: {
     ...process.env,
+    DANGEROUSLY_DISABLE_HOST_CHECK: 'true'
   },
 });
 
